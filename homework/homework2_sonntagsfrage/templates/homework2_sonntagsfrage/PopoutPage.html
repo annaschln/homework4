@@ -1,0 +1,67 @@
+{% extends "global/GlobalPopout.html" %}
+{% load otree static %}
+
+{% block title %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+    //Get variables needed for our popout
+    var merkelYes = document.getElementById('merkelYes');
+    var divYes = document.getElementById('divYes');
+    var merkelNo = document.getElementById('merkelNo');
+    var divNo = document.getElementById('divNo');
+
+    // POPOUT: we are going to create a popout function that displays text only if some value is given in another question
+    function popout() {
+        console.log('searching for the elements')
+        //the conditions and the implementation of showing the text
+        if (merkelYes.checked == true) {
+            console.log('yes');
+            divNo.style.display = "none";
+            divYes.style.display = "block";
+        }
+        if (merkelNo.checked == true) {
+            console.log('no');
+            divYes.style.display = "none";
+            divNo.style.display = "block";
+        }
+    }
+</script>
+{% endblock %}
+
+{% block content %}
+<!-- this is how we implement a time taking variable  -->
+<input id="time_popout" type="hidden" name="time_popout" />
+<br>
+<h2> Sunday Question </h2>
+<hr>
+
+<div>
+    <p><b>Is Sunday the best day to cast your vote on?</b></p>
+    <div><input id="merkelYes" type="radio" name="popout_question" value="1" onclick="popout()" /> Yes</div>
+    <div><input id="merkelNo" type="radio" name="popout_question" value="2" onclick="popout()" /> No</div>
+    <br>
+</div>
+
+
+<!-- question asked if the do know merkel is a good baker -->
+<div id="divYes" style="display: none">
+    <p>Are you sure?</p>
+    <input type="text" name="popout_yes" />
+    <br>
+</div>
+
+<!-- question asked if the don't know merkel is a good baker -->
+<div id="divNo" style="display: none">
+    <p>What do you have against Sundays?</p>
+    <input type="text" name="popout_no" />
+    <br>
+</div>
+
+<br>
+<button class="otree-btn-next btn btn-primary next-button otree-next-button">
+    Next
+</button>
+
+{% endblock %}
