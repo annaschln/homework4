@@ -58,7 +58,6 @@ class Player(BasePlayer):
     gender = models.IntegerField(initial=-999, label='Gender Question')
     # DemoPage
     eligibility = models.IntegerField(initial=-999)
-    # age_question = models.IntegerField(max=110, min=1)  #we can also have max and min guidelines
     day = models.IntegerField(initial=-999)
     elaborate_question = models.StringField(label='Please elaborate on your choice of weekday')
     hidden_input = models.IntegerField(initial=50, blank=True)
@@ -72,11 +71,3 @@ class Player(BasePlayer):
     group_assignment = models.IntegerField() #the variable we declared on top
 
 
-    #custom error message
-        #has to: 
-        #1) be in the class Player (important to indent the right way)
-        #2) have a specific name "variablename"_error_message
-    # def age_question_error_message(player, value):
-        # if value < 18:
-            # return 'You are too young. Are you sure that you are eligible to vote? If not, please leave the survey.'
-                        
