@@ -59,7 +59,7 @@ class Player(BasePlayer):
     # DemoPage
     eligibility = models.IntegerField(initial=-999)
     day = models.IntegerField(initial=-999)
-    elaborate_question = models.StringField(label='Please elaborate on your choice of weekday')
+    elaborate_question = models.StringField(label='Please elaborate on your choice of weekday.')
     hidden_input = models.IntegerField(initial=50, blank=True)
     #PopoutPage
     popout_question = models.IntegerField(blank=True)
