@@ -1,2 +1,2 @@
-# homework 2
-My submission for homework 2
+# seminar homework
+My homework submissions
